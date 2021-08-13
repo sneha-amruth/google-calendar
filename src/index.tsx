@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { WeekProvider } from "./context/week-context";
 
 ReactDOM.render(
   <React.StrictMode>
+    <WeekProvider>
     <App />
+    </WeekProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
