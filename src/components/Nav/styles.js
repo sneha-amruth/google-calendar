@@ -9,8 +9,6 @@ export default makeStyles((theme) => ({
       },
       title: {
         flexGrow: 1,
+        display: 'flex',
       },
-      view: {
-          color: "white",
-      }
 }));

@@ -1,13 +1,15 @@
+import * as moment from "moment";
 
 export type Months = "January" | "February" | "March" | "April" | "May" | "June" | "July" | "August" | "September" | "October" | "November" | "December";
 
 export type State = {
-    year: Number,
-    month: String,
-    startOfWeek: Object,
-    endOfWeek: Object,
-    day: String,
-    date: Number
+    year: number,
+    month: string,
+    startOfWeek: moment.Moment,
+    endOfWeek: moment.Moment,
+    day: string,
+    date: number,
+    weekdates: number[]
 }
 
 export type WeekContextType = {
@@ -16,6 +18,8 @@ export type WeekContextType = {
 }
 
 export type Action = 
-            | { type: 'NEXT_WEEK', payload: State}
-            | { type: 'PREVIOUS_WEEK', payload: State}
+            | { type: 'NEXT_WEEK'}
+            | { type: 'PREVIOUS_WEEK'}
+            | { type: 'CURRENT_WEEK'}
+            
           

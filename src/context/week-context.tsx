@@ -5,20 +5,20 @@ import { weekReducer } from "./weekReducer";
 import moment from "moment";
 
 const WeekContext = createContext<WeekContextType>({} as WeekContextType);
-const value = moment();
 
 const defaultState: State = { 
-    year: value.year(),
-    month: value.format("MMMM"),
-    startOfWeek: value.startOf("week"),
-    endOfWeek: value.endOf("week"),
-    day: value.format('dddd'),
-    date: value.date(),
+    year:  moment().year(),
+    month:  moment().format("MMMM"),
+    startOfWeek:  moment().startOf("week"),
+    endOfWeek:  moment().endOf("week"),
+    day:  moment().format('dddd'),
+    date:  moment().date(),
+    weekdates: []
 }
 
 export const WeekProvider: React.FC = ({children}) => {
     const [ weekState , weekDispatch] = useReducer(weekReducer, defaultState);
-
+    
     return (
         <WeekContext.Provider value={{weekState, weekDispatch}}>
         {children}
@@ -29,4 +29,3 @@ export const WeekProvider: React.FC = ({children}) => {
 export const useWeek = () => {
     return useContext(WeekContext);
  }
- 
