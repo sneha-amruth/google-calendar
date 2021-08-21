@@ -16,7 +16,6 @@ import moment from "moment";
 import useStyles from "./styles";
 import { useWeek } from "../../../../src/context/week-context";
 import Event from "../../../components/Events/Event";
-// import Grow from '@material-ui/core/Grow';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -43,7 +42,7 @@ export default function Week() {
   const startOfWeek = weekState.startOfWeek;
   const endOfWeek = weekState.endOfWeek;
 
-  var days = [];
+  let days = [];
   var day = startOfWeek;
 
   while (day <= endOfWeek) {
@@ -130,23 +129,26 @@ export default function Week() {
                 <TableCell key={date}>
                   <Avatar
                     className={
-                      moment().date() === date ? classes.currentDate : classes.dates
+                      moment().date() === date && weekState.month ===  moment().format("MMMM") ? classes.currentDate : classes.dates
                     }
                   >
                     {date}
                   </Avatar>
                   {hoursInADay.map((hour, index) => (
                     <TableRow key={hour}>
+                       {startOfWeek.toDate().getDate() === date ?  <TableCell>{hour}</TableCell> : <TableCell></TableCell>} 
                       <TableCell
                         onClick={(event) => handleOpen(event, date, hour)}
                         className={classes.cellBox}
                       >
-                        {" "} 
+                        {/* {moment().date() === date && moment().format("h:mm A") === hour ? "hi": ""}
+                          */}
+                          {" "}
                         <Event
                           date={date}
                           hour={hour}
                           month={weekState.month}
-                        />{" "}
+                        />
                       </TableCell>
                     </TableRow>
                   ))}

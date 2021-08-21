@@ -39,15 +39,15 @@ export const mockServer = () => {
         month: "August",
         day: "Friday",
         date: 20,
-        hour: "3:00 PM"
+        hour: "3:00 AM"
       });
       server.create("event", {
-        title: "Kick off meeting",
+        title: "kickoff event",
         year: 2021,
         month: "August",
-        day: "Wednesday",
-        date: 18,
-        hour: "4:00 AM"
+        day: "Friday",
+        date: 20,
+        hour: "3:00 AM"
       });
       server.create("event", {
         title: "Stand up",
@@ -79,6 +79,30 @@ export const mockServer = () => {
         month: "August",
         day: "Friday",
         date: 20,
+        hour: "2:00 AM"
+      });
+      server.create("event", {
+        title: "Project demo",
+        year: 2021,
+        month: "August",
+        day: "Saturday",
+        date: 23,
+        hour: "7:00 AM"
+      });
+      server.create("event", {
+        title: "Standup",
+        year: 2021,
+        month: "August",
+        day: "Saturday",
+        date: 24,
+        hour: "4:00 AM"
+      });
+      server.create("event", {
+        title: "Kate's B'day",
+        year: 2021,
+        month: "August",
+        day: "Friday",
+        date: 25,
         hour: "2:00 AM"
       });
     }

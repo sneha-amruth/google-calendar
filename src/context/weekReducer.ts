@@ -8,6 +8,7 @@ export const weekReducer = (state: State, action: Action): State => {
         ...state,
         startOfWeek: state.startOfWeek.clone().add(7, "d"),
         endOfWeek: state.startOfWeek.clone().add(13, "d"),
+        year: parseInt(state.startOfWeek.clone().add(13, "d").format("YYYY")),
         month:
           state.startOfWeek.clone().add(7, "d").format("MMMM") ===
           state.startOfWeek.clone().add(13, "d").format("MMMM")
@@ -24,6 +25,7 @@ export const weekReducer = (state: State, action: Action): State => {
         ...state,
         startOfWeek: state.startOfWeek.clone().add(-7, "d"),
         endOfWeek: state.startOfWeek.clone().add(-1, "d"),
+        year: parseInt(state.startOfWeek.clone().add(-1, "d").format("YYYY")),
         month:
           state.startOfWeek.clone().add(-7, "d").format("MMMM") ===
           state.startOfWeek.clone().add(-1, "d").format("MMMM")

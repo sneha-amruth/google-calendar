@@ -16,11 +16,11 @@ export default makeStyles((theme) =>
       },
       dates: {
         textAlign: "center",
-        marginLeft: "50px",
+        marginLeft: "80px",
       },
       currentDate: {
         backgroundColor: "#f50057",
-        marginLeft: "50px"
+        marginLeft: "80px"
       },
       modalPaper: {
         position: 'absolute',
@@ -38,6 +38,9 @@ export default makeStyles((theme) =>
         height: 40,
         width: 120,
         borderRadius: "5px",
+        position: "relative",
+        display: "flex",
+        // flexDirection: "row"
       }
     })
 );

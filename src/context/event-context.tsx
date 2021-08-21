@@ -7,7 +7,7 @@ import axios from "axios";
 const EventContext = createContext<EventContextType>({} as EventContextType);
 
 const defaultState: State = { 
-    eventsList: []
+    eventsList: [],
 }
 
 export const EventProvider: React.FC = ({children}) => {
