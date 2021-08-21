@@ -32,7 +32,6 @@ export const mockServer = () => {
         date: 17,
         hour: "1:00 AM",
       });
-
       server.create("event", {
         title: "Friday event",
         year: 2021,
@@ -85,7 +84,7 @@ export const mockServer = () => {
         title: "Project demo",
         year: 2021,
         month: "August",
-        day: "Saturday",
+        day: "Monday",
         date: 23,
         hour: "7:00 AM",
       });
@@ -93,7 +92,7 @@ export const mockServer = () => {
         title: "Standup",
         year: 2021,
         month: "August",
-        day: "Saturday",
+        day: "Tuesday",
         date: 24,
         hour: "4:00 AM",
       });
@@ -101,8 +100,16 @@ export const mockServer = () => {
         title: "Kate's B'day",
         year: 2021,
         month: "August",
-        day: "Friday",
+        day: "Wednesday",
         date: 25,
+        hour: "2:00 AM",
+      });
+      server.create("event", {
+        title: "Kate's B'day",
+        year: 2021,
+        month: "August",
+        day: "Thursday",
+        date: 26,
         hour: "2:00 AM",
       });
     },
