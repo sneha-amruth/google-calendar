@@ -4,6 +4,6 @@ Features
 - Navigate to different weeks
 - View Events
 
-Tech stack:
+Tech stack
 - TypeScript
 - Material-UI
