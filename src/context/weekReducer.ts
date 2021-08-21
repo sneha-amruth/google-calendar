@@ -17,8 +17,9 @@ export const weekReducer = (state: State, action: Action): State => {
                 .clone()
                 .add(-7, "d")
                 .format("MMMM")
-                .slice(0, 3) + " - "+
-                state.startOfWeek.clone().add(13, "d").format("MMMM").slice(0, 3),
+                .slice(0, 3) +
+              " - " +
+              state.startOfWeek.clone().add(13, "d").format("MMMM").slice(0, 3),
       };
     case "PREVIOUS_WEEK":
       return {
@@ -34,19 +35,20 @@ export const weekReducer = (state: State, action: Action): State => {
                 .clone()
                 .add(-7, "d")
                 .format("MMMM")
-                .slice(0, 3) + " - "+
+                .slice(0, 3) +
+              " - " +
               state.startOfWeek.clone().add(-1, "d").format("MMMM").slice(0, 3),
       };
-      case "CURRENT_WEEK":
-          return {
-            ...state,
-            year:  moment().year(),
-            month:  moment().format("MMMM"),
-            startOfWeek:  moment().startOf("week"),
-            endOfWeek:  moment().endOf("week"),
-            day:  moment().format('dddd'),
-            date:  moment().date(),
-          }
+    case "CURRENT_WEEK":
+      return {
+        ...state,
+        year: moment().year(),
+        month: moment().format("MMMM"),
+        startOfWeek: moment().startOf("week"),
+        endOfWeek: moment().endOf("week"),
+        day: moment().format("dddd"),
+        date: moment().date(),
+      };
     default:
       return state;
   }

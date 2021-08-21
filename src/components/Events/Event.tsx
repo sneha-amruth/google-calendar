@@ -33,14 +33,20 @@ export default function Event(props: EventProps) {
 
   return (
     <>
-      {
-          currentEventsList?.map((event) => (
-            <div className={classes.event}>
-            <Typography variant="caption" display="block"> { currentEventsList.length > 1 ? event.title.split(" ")[0] : event.title} </Typography>
-            <Typography variant="caption" display="block"> {event.hour}</Typography>
-          </div> 
-          ))
-      }
+      {currentEventsList?.map((event) => (
+        <div className={classes.event}>
+          <Typography variant="caption" display="block">
+            {" "}
+            {currentEventsList.length > 1
+              ? event.title.split(" ")[0]
+              : event.title}{" "}
+          </Typography>
+          <Typography variant="caption" display="block">
+            {" "}
+            {event.hour}
+          </Typography>
+        </div>
+      ))}
     </>
   );
 }

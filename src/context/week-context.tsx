@@ -6,26 +6,26 @@ import moment from "moment";
 
 const WeekContext = createContext<WeekContextType>({} as WeekContextType);
 
-const defaultState: State = { 
-    year:  moment().year(),
-    month:  moment().format("MMMM"),
-    startOfWeek:  moment().startOf("week"),
-    endOfWeek:  moment().endOf("week"),
-    day:  moment().format('dddd'),
-    date:  moment().date(),
-    weekdates: []
-}
+const defaultState: State = {
+  year: moment().year(),
+  month: moment().format("MMMM"),
+  startOfWeek: moment().startOf("week"),
+  endOfWeek: moment().endOf("week"),
+  day: moment().format("dddd"),
+  date: moment().date(),
+  weekdates: [],
+};
 
-export const WeekProvider: React.FC = ({children}) => {
-    const [ weekState , weekDispatch] = useReducer(weekReducer, defaultState);
-    
-    return (
-        <WeekContext.Provider value={{weekState, weekDispatch}}>
-        {children}
-       </WeekContext.Provider>
-    )
-}
+export const WeekProvider: React.FC = ({ children }) => {
+  const [weekState, weekDispatch] = useReducer(weekReducer, defaultState);
+
+  return (
+    <WeekContext.Provider value={{ weekState, weekDispatch }}>
+      {children}
+    </WeekContext.Provider>
+  );
+};
 
 export const useWeek = () => {
-    return useContext(WeekContext);
- }
+  return useContext(WeekContext);
+};
