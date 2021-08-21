@@ -20,7 +20,7 @@ export default function Nav() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const { weekState } = useWeek();
+  const { weekState, weekDispatch } = useWeek();
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -30,14 +30,23 @@ export default function Nav() {
     setAnchorEl(null);
   };
 
-  const nextWeekHandler = () => {
+  const moveToCurrentWeek = () => {
+    weekDispatch({type: "CURRENT_WEEK"})
+  }
 
+  const nextWeekHandler = () => {
+    weekDispatch({type: "NEXT_WEEK"})
+  }
+
+  const previousWeekHandler = () => {
+    weekDispatch({type: "PREVIOUS_WEEK"})
   }
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
+        
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -49,9 +58,10 @@ export default function Nav() {
           <Typography variant="h6" className={classes.title}>
             Calendar
           </Typography>
+          <Button variant="outlined" color="inherit" onClick={moveToCurrentWeek}>Today</Button>
           <Tooltip title="Previous week">
             <IconButton aria-label="Previous week" color="inherit">
-              <KeyboardArrowLeftIcon />
+              <KeyboardArrowLeftIcon onClick={previousWeekHandler}/>
             </IconButton>
           </Tooltip>
           <Tooltip title="Next week">
@@ -62,7 +72,8 @@ export default function Nav() {
           <Typography variant="h6" className={classes.title}>
             {weekState.month} {" "} {weekState.year}
           </Typography>
-          <Button onClick={handleMenu} className={classes.view}>
+          
+          <Button variant="outlined" onClick={handleMenu} color="inherit">
             Week
           </Button>
           <div>
