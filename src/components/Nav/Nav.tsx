@@ -31,22 +31,21 @@ export default function Nav() {
   };
 
   const moveToCurrentWeek = () => {
-    weekDispatch({type: "CURRENT_WEEK"})
-  }
+    weekDispatch({ type: "CURRENT_WEEK" });
+  };
 
   const nextWeekHandler = () => {
-    weekDispatch({type: "NEXT_WEEK"})
-  }
+    weekDispatch({ type: "NEXT_WEEK" });
+  };
 
   const previousWeekHandler = () => {
-    weekDispatch({type: "PREVIOUS_WEEK"})
-  }
+    weekDispatch({ type: "PREVIOUS_WEEK" });
+  };
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-        
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -58,21 +57,27 @@ export default function Nav() {
           <Typography variant="h6" className={classes.title}>
             Calendar
           </Typography>
-          <Button variant="outlined" color="inherit" onClick={moveToCurrentWeek}>Today</Button>
+          <Button
+            variant="outlined"
+            color="inherit"
+            onClick={moveToCurrentWeek}
+          >
+            Today
+          </Button>
           <Tooltip title="Previous week">
             <IconButton aria-label="Previous week" color="inherit">
-              <KeyboardArrowLeftIcon onClick={previousWeekHandler}/>
+              <KeyboardArrowLeftIcon onClick={previousWeekHandler} />
             </IconButton>
           </Tooltip>
           <Tooltip title="Next week">
             <IconButton aria-label="Next week" color="inherit">
-              <KeyboardArrowRightIcon onClick={nextWeekHandler}/>
+              <KeyboardArrowRightIcon onClick={nextWeekHandler} />
             </IconButton>
           </Tooltip>
           <Typography variant="h6" className={classes.title}>
-            {weekState.month} {" "} {weekState.year}
+            {weekState.month} {weekState.year}
           </Typography>
-          
+
           <Button variant="outlined" onClick={handleMenu} color="inherit">
             Week
           </Button>

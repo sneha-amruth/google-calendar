@@ -43,7 +43,7 @@ export default function Week() {
   const endOfWeek = weekState.endOfWeek;
 
   let days = [];
-  var day = startOfWeek;
+  let day = startOfWeek;
 
   while (day <= endOfWeek) {
     days.push(day.toDate().getDate());
@@ -109,66 +109,71 @@ export default function Week() {
 
   return (
     <Slide direction="up" in={true} mountOnEnter unmountOnExit>
-    <div className={classes.root}>
-        
-      <Paper className={classes.paper}>
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            {weekdaysArray.map((weekday) => (
-              <>
-                {/* <TableCell></TableCell> */}
-                <TableCell key={weekday}  className={classes.weekday}>{weekday}</TableCell>
-              </>
-            ))}
-          </TableRow>
-          <TableRow>
-            <TableCell />
-            {days.map((date, index) => (
-              <>
-                <TableCell key={date}>
-                  <Avatar
-                    className={
-                      moment().date() === date && weekState.month ===  moment().format("MMMM") ? classes.currentDate : classes.dates
-                    }
-                  >
-                    {date}
-                  </Avatar>
-                  {hoursInADay.map((hour, index) => (
-                    <TableRow key={hour}>
-                       {startOfWeek.toDate().getDate() === date ?  <TableCell>{hour}</TableCell> : <TableCell></TableCell>} 
-                      <TableCell
-                        onClick={(event) => handleOpen(event, date, hour)}
-                        className={classes.cellBox}
-                      >
-                        {/* {moment().date() === date && moment().format("h:mm A") === hour ? "hi": ""}
-                          */}
+      <div className={classes.root}>
+        <Paper className={classes.paper}>
+          <TableHead>
+            <TableRow>
+              <TableCell />
+              {weekdaysArray.map((weekday) => (
+                <>
+                  <TableCell key={weekday} className={classes.weekday}>
+                    {weekday}
+                  </TableCell>
+                </>
+              ))}
+            </TableRow>
+            <TableRow>
+              <TableCell />
+              {days.map((date, index) => (
+                <>
+                  <TableCell key={date}>
+                    <Avatar
+                      className={
+                        moment().date() === date &&
+                        weekState.month === moment().format("MMMM")
+                          ? classes.currentDate
+                          : classes.dates
+                      }
+                    >
+                      {date}
+                    </Avatar>
+                    {hoursInADay.map((hour, index) => (
+                      <TableRow key={hour}>
+                        {startOfWeek.toDate().getDate() === date ? (
+                          <TableCell>{hour}</TableCell>
+                        ) : (
+                          <TableCell></TableCell>
+                        )}
+                        <TableCell
+                          onClick={(event) => handleOpen(event, date, hour)}
+                          className={classes.cellBox}
+                        >
                           {" "}
-                        <Event
-                          date={date}
-                          hour={hour}
-                          month={weekState.month}
-                        />
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableCell>
-              </>
-            ))}
-          </TableRow>
-        </TableHead>
-        <div>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-          >
-            {body}
-          </Modal>
-        </div>
-      </Paper>
-    </div>
+                          <Event
+                            date={date}
+                            hour={hour}
+                            month={weekState.month}
+                          />
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableCell>
+                </>
+              ))}
+            </TableRow>
+          </TableHead>
+          <div>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="simple-modal-title"
+              aria-describedby="simple-modal-description"
+            >
+              {body}
+            </Modal>
+          </div>
+        </Paper>
+      </div>
     </Slide>
   );
 }

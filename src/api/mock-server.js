@@ -3,11 +3,11 @@ import { createServer, Model, RestSerializer } from "miragejs";
 export const mockServer = () => {
   createServer({
     serializers: {
-      application: RestSerializer
+      application: RestSerializer,
     },
 
     models: {
-     events: Model
+      events: Model,
     },
 
     routes() {
@@ -29,8 +29,8 @@ export const mockServer = () => {
         year: 2021,
         month: "August",
         day: "Sunday",
-        date: 17, 
-        hour: "1:00 AM"
+        date: 17,
+        hour: "1:00 AM",
       });
 
       server.create("event", {
@@ -39,7 +39,7 @@ export const mockServer = () => {
         month: "August",
         day: "Friday",
         date: 20,
-        hour: "3:00 AM"
+        hour: "3:00 AM",
       });
       server.create("event", {
         title: "kickoff event",
@@ -47,7 +47,7 @@ export const mockServer = () => {
         month: "August",
         day: "Friday",
         date: 20,
-        hour: "3:00 AM"
+        hour: "3:00 AM",
       });
       server.create("event", {
         title: "Stand up",
@@ -55,7 +55,7 @@ export const mockServer = () => {
         month: "August",
         day: "Sunday",
         date: 15,
-        hour: "2:00 AM"
+        hour: "2:00 AM",
       });
       server.create("event", {
         title: "Project demo",
@@ -63,7 +63,7 @@ export const mockServer = () => {
         month: "August",
         day: "Saturday",
         date: 21,
-        hour: "7:00 AM"
+        hour: "7:00 AM",
       });
       server.create("event", {
         title: "Reflect",
@@ -71,7 +71,7 @@ export const mockServer = () => {
         month: "August",
         day: "Saturday",
         date: 21,
-        hour: "10:00 AM"
+        hour: "10:00 AM",
       });
       server.create("event", {
         title: "John's B'day",
@@ -79,7 +79,7 @@ export const mockServer = () => {
         month: "August",
         day: "Friday",
         date: 20,
-        hour: "2:00 AM"
+        hour: "2:00 AM",
       });
       server.create("event", {
         title: "Project demo",
@@ -87,7 +87,7 @@ export const mockServer = () => {
         month: "August",
         day: "Saturday",
         date: 23,
-        hour: "7:00 AM"
+        hour: "7:00 AM",
       });
       server.create("event", {
         title: "Standup",
@@ -95,7 +95,7 @@ export const mockServer = () => {
         month: "August",
         day: "Saturday",
         date: 24,
-        hour: "4:00 AM"
+        hour: "4:00 AM",
       });
       server.create("event", {
         title: "Kate's B'day",
@@ -103,8 +103,8 @@ export const mockServer = () => {
         month: "August",
         day: "Friday",
         date: 25,
-        hour: "2:00 AM"
+        hour: "2:00 AM",
       });
-    }
+    },
   });
 };
